@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#welcome'
 
-  get 'static_pages/about'
+  get 'about' => 'static_pages#about'
 
 
 

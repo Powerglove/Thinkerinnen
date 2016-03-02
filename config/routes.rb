@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
 
   get 'thinkers/new'
+  post 'thinkers/create'
 
   get 'thinkers/destroy'
 
   
-
+  resources :thinkers
 
 
 

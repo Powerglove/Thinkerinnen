@@ -8,7 +8,7 @@ class ThinkersController < ApplicationController
   end
 
   def show
-  	
+  	 @thinker = Thinker.find(params[:id])
   end
 
   def destroy

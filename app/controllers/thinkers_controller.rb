@@ -7,9 +7,15 @@ class ThinkersController < ApplicationController
   	
   end
 
-  def show
-  	 @thinker = Thinker.find(params[:id])
+  def index
+  	@thinkers = Thinker.all
   end
+
+  def show
+  	@thinker = Thinker.find(params[:id])
+  end
+
+  
 
   def destroy
   end

@@ -1,0 +1,20 @@
+<h1>Listing thinkers</h1>
+
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th scope="col">dog</th>
+    </tr>
+   
+    <% @thinkers.each do |thinker| %>
+      
+        <tr>
+          <td><%= thinker.name %></td>
+          <td><%= thinker.email %></td>
+        </tr>
+      
+    <% end %>
+  </table>
+

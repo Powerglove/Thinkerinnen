@@ -28,13 +28,14 @@ textarea {
 }
 
 .table {
+	@extend .table-hover;
 	text-align: center;
 	th {
 	text-align: center;
 	}
 }
 
-.table-hover
+
 
 
 /* typography */

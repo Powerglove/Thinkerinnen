@@ -4,7 +4,13 @@ class ThinkersController < ApplicationController
   end
 
   def create
-  	
+  	@thinker = Thinker.new(thinker_params)
+ 
+	  if @thinker.save
+	    redirect_to @thinker
+	  else
+	    render 'new'
+	  end
   end
 
   def index
@@ -19,4 +25,10 @@ class ThinkersController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def thinker_params
+      params.require(:thinker).permit(:name, :email)
+    end
 end

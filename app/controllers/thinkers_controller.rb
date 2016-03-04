@@ -36,6 +36,10 @@ class ThinkersController < ApplicationController
 	end
 
   def destroy
+  	@thinker = Thinker.find(params[:id])
+  	@thinker.destroy
+ 
+  	redirect_to thinkers_path
   end
 
   private

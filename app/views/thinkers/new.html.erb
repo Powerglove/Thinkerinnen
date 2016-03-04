@@ -3,25 +3,7 @@
 
 <h2>Create a new thinker's profile</h2>
 
-<%= form_for :thinker, url: thinkers_path do |f| %>
+<%= render 'form' %>
 
-	<p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
-
-	<p>
-    <%= f.submit %>
-  </p>
-
-
- <% end %> 
-
-
-
+<%= link_to 'Back', thinkers_path %>
 </div>

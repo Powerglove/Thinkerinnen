@@ -21,7 +21,19 @@ class ThinkersController < ApplicationController
   	@thinker = Thinker.find(params[:id])
   end
 
-  
+  def edit
+  	@thinker = Thinker.find(params[:id])
+	end
+
+	def update
+	  @thinker = Thinker.find(params[:id])
+	 
+	  if @thinker.update(thinker_params)
+	    redirect_to @thinker
+	  else
+	    render 'edit'
+	  end
+	end
 
   def destroy
   end

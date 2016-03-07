@@ -1,15 +1,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono:300,400,700);
 
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$thinker_blue: rgb(20,60,100);
+$thinker_gold: rgb(240,180,60);
 
 /* universal */
 
 
 body {
 	padding-top: 40px;
+	font-family: "Droid Sans", sans-serif;
 }
 
 section {
@@ -27,19 +32,37 @@ textarea {
 	}
 }
 
+.table {
+	@extend .table-hover;
+	text-align: center;
+	th {
+	text-align: center;
+	}
+}
+
+a {
+	color: $thinker_blue;
+}
+
+.navbar-inverse {
+	background-color: $thinker_blue;
+}
 
 /* typography */
 
 h1, h2, h3, h4, h5, h5 {
-	line-height: 1
+	line-height: 1;
 }
+
 
 h1 {
 	font-size: 2.5 em;
-	font-family: Courier New;
+	font-family: "Droid Sans Mono", sans-serif;
 	letter-spacing: -1px;
 	margin-bottom: 30px;
 	text-align: center;
+	// To Do: Figure out where this is being inherited from and then loose the !important
+	color: $thinker_blue !important;
 }
 
 h2{
@@ -64,11 +87,11 @@ p {
 	margin-right: 10px;
 	font-size: 2em;
 	color: #fff;
-	text-transform: uppercase;
+	//text-transform: uppercase;
 	letter-spacing: -1px;
 	padding-top: 9px;
-	font-family: Courier New;
-	font-weight: normal;
+	font-family: "Droid Sans Mono", "Arial", sans;
+	font-weight: 300;
 
 	&:hover {
 	color: white;
@@ -76,6 +99,13 @@ p {
 	}
 }
 
+.navbar-right a {
+	color: #fff !important;
+	
+	&:hover {
+	color: lighten($thinker_blue,40%) !important;
+}
+}
 
 /* footer*/
 

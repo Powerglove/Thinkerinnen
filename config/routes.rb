@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
   root 'static_pages#welcome'
 
   get 'about' => 'static_pages#about'
+
+
+  
+  resources :thinkers
 
 
 

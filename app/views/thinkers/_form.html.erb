@@ -1,0 +1,34 @@
+<%= form_for @thinker do |f| %>
+
+<% if @thinker.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@thinker.errors.count, "error") %> prohibited
+        this topic from being saved:
+      </h2>
+      <ul>
+        <% @thinker.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_area :email %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+
+
+ 

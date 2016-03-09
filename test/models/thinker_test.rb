@@ -19,4 +19,13 @@ class ThinkerTest < ActiveSupport::TestCase
   	assert_not @thinker.valid?
 	end
 
+	test "name should not be too long" do
+    @thinker.name = "a" * 51
+    assert_not @thinker.valid?
+  end
+
+	test "email should not be too long" do
+    @thinker.email = "a" * 51 + "@example.com"
+    assert_not @thinker.valid?
+  end
 end

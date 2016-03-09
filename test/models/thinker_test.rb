@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class ThinkerTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+ def setup
+    @thinker = Thinker.new(name: "Example Thinker", email: "thinker@example.com")
+  end
+
+  test "should be valid" do
+    assert @thinker.valid?
+  end
 end

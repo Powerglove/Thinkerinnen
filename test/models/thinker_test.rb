@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ThinkerTest < ActiveSupport::TestCase
- def setup
+ 	def setup
     @thinker = Thinker.new(name: "Example Thinker", email: "thinker@example.com")
   end
 

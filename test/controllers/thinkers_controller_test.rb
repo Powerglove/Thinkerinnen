@@ -20,7 +20,8 @@ class ThinkersControllerTest < ActionController::TestCase
 	  assert_difference('Thinker.count') do
 	  post :create, thinker: {name: 'Some name', email: 'email@example.com'}
 	  end
- 
+
+ 		#assert_equal assigns(:thinker), @thinker
   	assert_redirected_to thinker_path(assigns(:thinker))
 	end
 

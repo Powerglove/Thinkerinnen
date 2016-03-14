@@ -34,10 +34,15 @@ class ThinkersControllerTest < ActionController::TestCase
   	assert_response :success
   end
 
-  #test "should update thinker" do
-  	#put :update, id: @thinker.id
-  	#assert_response :success
-  #end
+  test "should update thinker" do
+    params = {name: 'Another Thinker'}
+
+    put :update, id: @thinker.id, thinker: params
+
+    @thinker.reload
+    assert_equal @thinker.name, params[:name]
+    assert_redirected_to(@thinker)
+  end
 
   test "should delete thinker" do
   	#assert_difference('Thinker.count') do

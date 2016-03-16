@@ -7,6 +7,7 @@ class ThinkersController < ApplicationController
   	@thinker = Thinker.new(thinker_params)
  
 	  if @thinker.save
+      flash[:notice] = "Thinker was successfully created!"
 	    redirect_to @thinker
 	  else
 	    render 'new'
@@ -29,6 +30,7 @@ class ThinkersController < ApplicationController
 	  @thinker = Thinker.find(params[:id])
 	 
 	  if @thinker.update(thinker_params)
+      flash[:notice] = "Thinker successfully updated"
 	    redirect_to @thinker
 	  else
 	    render 'edit'
@@ -38,7 +40,7 @@ class ThinkersController < ApplicationController
   def destroy
   	@thinker = Thinker.find(params[:id])
   	@thinker.destroy
- 
+    flash[:notice] = "You have successfully deleted #{@thinker.name}."
   	redirect_to thinkers_path
   end
 

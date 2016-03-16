@@ -1,4 +1,6 @@
 class ThinkersController < ApplicationController
+  before_action :authenticate_user!
+  
   def new
   	@thinker = Thinker.new
   end

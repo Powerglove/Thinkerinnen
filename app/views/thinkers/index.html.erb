@@ -11,13 +11,15 @@
     <% @thinkers.each do |thinker| %>
       
         <tr>
-          <td><%= thinker.name %></td>
+          <td><%= link_to thinker.name, thinker_path(thinker) %></td>
           <td><%= thinker.email %></td>
-          <td><%= link_to 'Show', thinker_path(thinker) %></td>
-          <td><%= link_to 'Edit', edit_thinker_path(thinker) %></td>
-          <td><%= link_to 'Destroy', thinker_path(thinker),
+          <td><%= link_to '', edit_thinker_path(thinker), class: 'glyphicon glyphicon-pencil' %>
+          </td>
+          <td>
+            <%= link_to '', thinker_path(thinker), class: 'glyphicon glyphicon-trash',
                   method: :delete,
-                  data: { confirm: 'Are you sure?' } %></td>
+                  data: { confirm: 'Are you sure?' } %>
+          </td>
         </tr>
       
     <% end %>
@@ -25,4 +27,7 @@
 
 </div>
 
-<p><%= link_to 'New Thinker', new_thinker_path %></p>
+
+
+          
+        

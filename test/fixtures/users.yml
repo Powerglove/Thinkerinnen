@@ -4,3 +4,6 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
+example_user:
+  email: example_user@example.com
+  confirmed_at: <%= 1.day.ago.to_s(:db) %>

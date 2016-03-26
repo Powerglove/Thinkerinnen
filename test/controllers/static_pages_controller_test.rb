@@ -5,7 +5,7 @@ class StaticPagesControllerTest < ActionController::TestCase
 
   def setup
     @request.env["devise.mapping"] = Devise.mappings[:admin]
-    sign_in User.create(email: "thinker@example.com", password: "password", confirmed_at: 1.day.ago)
+    sign_in users(:example_user)
   end
   
 

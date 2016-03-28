@@ -48,6 +48,11 @@ a {
 	background-color: $thinker_blue;
 }
 
+.bs-glyphicons li {
+    width: 12.5%;
+    font-size: 12px;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h5 {
@@ -79,7 +84,15 @@ p {
 	line-height: 1.7em;
 }
 
+ul.hmenu {
+  list-style: none; 
+  margin: 0 0 2em;
+  padding: 0;
+}
 
+ul.hmenu li {
+  display: inline;  
+}
 /* header */
 
 #logo {

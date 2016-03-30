@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class ThinkersControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   def setup
     @thinker = Thinker.create( name: "Example Thinker", email: "thinker@example.com")
+    @request.env["devise.mapping"] = Devise.mappings[:admin]
+    sign_in users(:example_user)
   end
 
   test "should get new" do

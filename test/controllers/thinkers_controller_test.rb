@@ -27,7 +27,7 @@ class ThinkersControllerTest < ActionController::TestCase
 
  		#assert_equal assigns(:thinker), @thinker
     #We could improve test coverage here by verifying the values for the assigned thinker (name, email) match the parameters given.
-  	assert_redirected_to thinker_path(assigns(:thinker))
+    assert_redirected_to thinker_path(assigns(:thinker))
 	end
 
   test "render new when validation fails on create" do

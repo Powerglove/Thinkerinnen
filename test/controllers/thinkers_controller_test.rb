@@ -26,11 +26,9 @@ class ThinkersControllerTest < ActionController::TestCase
     assert_difference('Thinker.count') do
 	  post :create, thinker: params
 	  end
-
- 		#assert_equal assigns(:thinker), @thinker
+    
     assert_equal params[:name], assigns(:thinker).name
     assert_equal params[:email], assigns(:thinker).email
-    #We could improve test coverage here by verifying the values for the assigned thinker (name, email) match the parameters given.
     assert_redirected_to thinker_path(assigns(:thinker))
 	end
 

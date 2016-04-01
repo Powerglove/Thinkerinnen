@@ -1,4 +1,4 @@
-<%= form_for @thinker do |f| %>
+<%= bootstrap_form_for @thinker do |f| %>
 
 <% if @thinker.errors.any? %>
     <div id="error_explanation">
@@ -15,20 +15,17 @@
   <% end %>
 
   <p>
-    <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
  
   <p>
-    <%= f.label :email %><br>
-    <%= f.text_area :email %>
+     <%= f.email_field :email %>
   </p>
  
   <p>
-    <%= f.submit %>
+    <%= f.submit "Create Thinker" %>
   </p>
  
 <% end %>
 
 
- 

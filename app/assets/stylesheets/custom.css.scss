@@ -44,14 +44,13 @@ a {
 	color: $thinker_blue;
 }
 
-.navbar-inverse {
-	background-color: $thinker_blue;
-}
+
 
 .bs-glyphicons li {
     width: 12.5%;
     font-size: 12px;
 }
+
 
 /* typography */
 
@@ -117,7 +116,11 @@ ul.hmenu li {
 	
 	&:hover {
 	color: lighten($thinker_blue,40%) !important;
+	}
 }
+
+.navbar-inverse {
+	background-color: $thinker_blue;
 }
 
 /* footer*/
@@ -144,4 +147,11 @@ footer {
 		margin-left: 15px;
 		}
 	}
+}
+
+/*forms*/
+
+.form-control {
+	width: 50%;
+	margin: 0 auto;
 }

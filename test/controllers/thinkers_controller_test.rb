@@ -21,11 +21,15 @@ class ThinkersControllerTest < ActionController::TestCase
   end
 
   test "should create thinker" do
-	  assert_difference('Thinker.count') do
-	  post :create, thinker: {name: 'Some name', email: 'email@example.com'}
+	  params = {name: 'Some name', email: 'email@example.com'}
+
+    assert_difference('Thinker.count') do
+	  post :create, thinker: params
 	  end
 
  		#assert_equal assigns(:thinker), @thinker
+    assert_equal params[:name], assigns(:thinker).name
+    assert_equal params[:email], assigns(:thinker).email
     #We could improve test coverage here by verifying the values for the assigned thinker (name, email) match the parameters given.
     assert_redirected_to thinker_path(assigns(:thinker))
 	end

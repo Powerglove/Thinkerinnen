@@ -13,6 +13,13 @@
   <%= @thinker.email %>
 </p>
 
+<p>
+	<strong>Topics:</strong>
+	<% @thinker.topic_list.each do |topic| %>
+	<% topic %>
+	<% end %>
+</p>
+
 <%= link_to 'Edit', edit_thinker_path(@thinker) %> |
 <%= link_to 'Back', thinkers_path %>
 

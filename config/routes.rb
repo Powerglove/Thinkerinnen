@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'topics/index'
+
   devise_for :users
   root 'static_pages#welcome'
 

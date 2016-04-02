@@ -6,6 +6,7 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
+      <th>Topics</th>
     </tr>
    
     <% @thinkers.each do |thinker| %>
@@ -13,6 +14,7 @@
         <tr>
           <td><%= link_to thinker.name, thinker_path(thinker) %></td>
           <td><%= thinker.email %></td>
+          <td><%= link_to thinker.topic_list %></td>
           <td><%= link_to '', edit_thinker_path(thinker), class: 'glyphicon glyphicon-pencil' %>
           </td>
           <td>

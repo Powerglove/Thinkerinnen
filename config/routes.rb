@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'topics/index'
+  get 'topics/:topic', to: 'topics#index', as: 'topic' 
 
   devise_for :users
   root 'static_pages#welcome'

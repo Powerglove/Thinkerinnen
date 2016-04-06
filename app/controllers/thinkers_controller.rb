@@ -50,6 +50,6 @@ class ThinkersController < ApplicationController
   private
 
   def thinker_params
-      params.require(:thinker).permit(:name, :email)
+      params.require(:thinker).permit(:name, :email, :topic_list)
     end
 end

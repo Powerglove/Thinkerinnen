@@ -1,0 +1,19 @@
+<h1>Thinkers with the topic <%=@topic%></h1>
+
+<div class="center jumbotron">
+
+<table class="table table-hover">
+    <tr>
+      <th>Name</th>
+ 		</tr>
+
+ 		 <% @thinkers.each do |thinker| %>
+      
+        <tr>
+          <td><%= link_to thinker.name, thinker_path(thinker) %></td>
+        </tr>
+      
+    <% end %>
+ </table>
+</div>
+

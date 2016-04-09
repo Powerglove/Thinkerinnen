@@ -1,3 +1,5 @@
+include Devise::TestHelpers
+
 Given(/^a thinker "([^"]*)"$/) do |name|
 	email = "#{name.gsub(' ', '').underscore}@example.com"
   @thinker = Thinker.create(name: name, email: email)
@@ -13,10 +15,10 @@ Then(/^there should be a thinker "([^"]*)"$/) do |name|
   assert page.has_content?(name), "Expected to find thinker with name '#{name}'"
 end
 
+
 When(/^I visit the thinker's detail page$/) do
   visit thinker_path(@thinker)
 end
-
 
 Then(/^there should be the details for the thinker$/) do 
   assert page.has_content?(@thinker.name), "Expected to find thinker with name '#{@thinker.name}' "
@@ -24,4 +26,14 @@ Then(/^there should be the details for the thinker$/) do
   @thinker.topic_list.each do |topic|
   	assert page.has_link?(topic, href: topic_path(topic)), "Expected to find detail '#{topic}' for thinker '#{@thinker.name}'"
 	end
+end
+
+
+When(/^I click on the edit\-button next to the thinker's name$/) do
+	visit "/users/sign_up"
+  visit  "/thinkers/:id/edit"
+end
+
+Then(/^I should see the edit form$/) do
+  assert page.has_content?(@thinker.name), "Expected to find thinker with name '#{@thinker.name}' "
 end

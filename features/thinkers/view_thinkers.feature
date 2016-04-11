@@ -12,7 +12,12 @@ Feature: view list of thinkers
 		When I visit the thinker's detail page
 		Then there should be the details for the thinker
 
-	Scenario: update individual thinker
+	Scenario: update thinker
 		Given a thinker "Example Thinker"
-		When I click on the edit-button next to the thinker's name
-		Then I should see the edit form
+		And I am authenticated
+		When I edit the update form and submit the changes
+		Then there should be the updated details for the thinker
+
+
+
+

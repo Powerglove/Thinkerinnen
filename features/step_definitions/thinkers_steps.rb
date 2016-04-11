@@ -1,4 +1,4 @@
-include Devise::TestHelpers
+
 
 Given(/^a thinker "([^"]*)"$/) do |name|
 	email = "#{name.gsub(' ', '').underscore}@example.com"
@@ -29,11 +29,23 @@ Then(/^there should be the details for the thinker$/) do
 end
 
 
-When(/^I click on the edit\-button next to the thinker's name$/) do
-	visit "/users/sign_up"
-  visit  "/thinkers/:id/edit"
+Given(/^I am authenticated$/) do
+  user = User.create(email: "example_user2@example.com", confirmed_at: 1.day.ago)
+  #@request.env["devise.mapping"] = Devise.mappings[:admin]
+	login_as(user, :scope => :user)
 end
 
-Then(/^I should see the edit form$/) do
-  assert page.has_content?(@thinker.name), "Expected to find thinker with name '#{@thinker.name}' "
+When(/^I edit the update form and submit the changes$/) do
+  visit edit_thinker_path(@thinker)
+  @new_params = { name: 'Another Thinker' }
+  fill_in "Name", with: @new_params[:name] 
+  click_button 'Create Thinker'
+
 end
+
+Then(/^there should be the updated details for the thinker$/) do
+  byebug
+  assert page.has_content?(@new_params[:name]), "Expected to find thinker with name '#{@new_params[:name]}'"
+end
+
+

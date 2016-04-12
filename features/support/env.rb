@@ -50,7 +50,10 @@ end
 #     DatabaseCleaner.strategy = :transaction
 #   end
 #
-
+World(Warden::Test::Helpers)
+World(Devise::TestHelpers)
+Warden.test_mode!
+After { Warden.test_reset! }
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature

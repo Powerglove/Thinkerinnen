@@ -11,3 +11,13 @@ Feature: view list of thinkers
 		Given a thinker "Example Thinker"
 		When I visit the thinker's detail page
 		Then there should be the details for the thinker
+
+	Scenario: update thinker
+		Given a thinker "Example Thinker"
+		And I am authenticated
+		When I edit the update form and submit the changes
+		Then there should be the updated details for the thinker
+
+
+
+

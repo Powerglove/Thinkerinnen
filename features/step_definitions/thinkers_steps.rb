@@ -30,7 +30,7 @@ end
 
 
 Given(/^I am authenticated$/) do
-  user = User.create(email: "example_user2@example.com", confirmed_at: 1.day.ago)
+  user = User.create(email: "example_user2@example.com", password: "12345678", confirmed_at: 1.day.ago)
   #@request.env["devise.mapping"] = Devise.mappings[:admin]
 	login_as(user, :scope => :user)
 end
@@ -44,7 +44,6 @@ When(/^I edit the update form and submit the changes$/) do
 end
 
 Then(/^there should be the updated details for the thinker$/) do
-  byebug
   assert page.has_content?(@new_params[:name]), "Expected to find thinker with name '#{@new_params[:name]}'"
 end
 

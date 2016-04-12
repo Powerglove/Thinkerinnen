@@ -31,7 +31,6 @@ end
 
 Given(/^I am authenticated$/) do
   user = User.create(email: "example_user2@example.com", password: "12345678", confirmed_at: 1.day.ago)
-  #@request.env["devise.mapping"] = Devise.mappings[:admin]
 	login_as(user, :scope => :user)
 end
 

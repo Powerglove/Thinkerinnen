@@ -7,6 +7,7 @@ class ThinkersController < ApplicationController
 
   def create
   	@thinker = Thinker.new(thinker_params)
+    
  
 	  if @thinker.save
       flash[:notice] = "Thinker was successfully created!"

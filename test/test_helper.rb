@@ -22,8 +22,9 @@ class ActiveSupport::TestCase
 	#end
 
 	def permit(user, record, action)
-	  cls = self.class.superclass.to_s.gsub(/Test/, '')
-	  cls.constantize.new(user, record).public_send("#{action.to_s}?")
+  test_name = self.class.ancestors.select { |a| a.to_s.match(/PolicyTest/) }.first
+  klass = test_name.to_s.gsub(/Test/, '')
+  klass.constantize.new(user, record).public_send("#{action.to_s}?")
 	end
 	# Add more helper methods to be used by all tests here...
 end

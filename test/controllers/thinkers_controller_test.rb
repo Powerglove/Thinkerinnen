@@ -6,7 +6,9 @@ class ThinkersControllerTest < ActionController::TestCase
   def setup
     @thinker = Thinker.create( name: "Example Thinker", email: "thinker@example.com")
     @request.env["devise.mapping"] = Devise.mappings[:admin]
-    sign_in users(:example_user)
+    @user = users(:example_user)
+    sign_in @user
+
   end
 
   test "should get new" do
@@ -67,6 +69,7 @@ class ThinkersControllerTest < ActionController::TestCase
   end
 
   test "should delete thinker" do
+    @user.add_role :admin
   	assert_difference('Thinker.count', -1) do
     delete :destroy, id: @thinker.id
   	end

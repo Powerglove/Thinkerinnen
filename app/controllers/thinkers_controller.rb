@@ -7,7 +7,6 @@ class ThinkersController < ApplicationController
 
   def create
   	@thinker = Thinker.new(thinker_params)
- 
 	  if @thinker.save
       flash[:notice] = "Thinker was successfully created!"
 	    redirect_to @thinker
@@ -41,9 +40,10 @@ class ThinkersController < ApplicationController
 
   def destroy
   	@thinker = Thinker.find(params[:id])
-  	@thinker.destroy
+    authorize @thinker.destroy
+    @thinker.destroy
     flash[:notice] = "You have successfully deleted #{@thinker.name}."
-  	redirect_to thinkers_path
+    redirect_to thinkers_path  
   end
 
   private

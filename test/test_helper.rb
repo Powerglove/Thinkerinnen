@@ -3,7 +3,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+ 
   fixtures :all
 
   def assert_permit(user, record, action)
@@ -16,15 +16,12 @@ class ActiveSupport::TestCase
 	  refute permit(user, record, action), msg
 	end
 
-	#def refute_permit(user, thinker, action)
-	  #msg = "User #{user.inspect} should NOT be permitted to #{action} #{thinker}, but is permitted"
-	  #refute permit(user, thinker, action), msg
-	#end
+
 
 	def permit(user, record, action)
   test_name = self.class.ancestors.select { |a| a.to_s.match(/PolicyTest/) }.first
   klass = test_name.to_s.gsub(/Test/, '')
   klass.constantize.new(user, record).public_send("#{action.to_s}?")
 	end
-	# Add more helper methods to be used by all tests here...
+	
 end

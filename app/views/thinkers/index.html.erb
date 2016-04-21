@@ -5,6 +5,7 @@
    <table class="table table-hover">
     <tr>
       <th>Name</th>
+      <th>Life Dates</th>
       <th>Email</th>
       <th>Topics</th>
     </tr>
@@ -13,6 +14,7 @@
       
         <tr>
           <td><%= link_to thinker.name, thinker_path(thinker) %></td>
+          <td><%= thinker.life_date_birth %></td>
           <td><%= thinker.email %></td>
           <td>
           <% thinker.topic_list.each do |topic| %>

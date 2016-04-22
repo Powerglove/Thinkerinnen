@@ -49,6 +49,6 @@ class ThinkersController < ApplicationController
   private
 
   def thinker_params
-      params.require(:thinker).permit(:name, :email, :topic_list)
+      params.require(:thinker).permit(:name, :email, :topic_list, :life_date_birth, :life_date_death)
     end
 end

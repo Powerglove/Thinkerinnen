@@ -10,13 +10,7 @@
 
 <p>
  <strong>Life Dates:</strong> 
- <%= @thinker.life_date_birth %> 
- <%= @thinker.life_date_death %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @thinker.email %>
+ <%= @thinker.life_date_birth %> - <%= @thinker.life_date_death %>
 </p>
 
 <p>
@@ -26,7 +20,10 @@
 	<% end %>
 </p>
 
- 
+ <p>
+  <strong>Email:</strong>
+  <%= @thinker.email %>
+</p>
 
 <%= link_to 'Edit', edit_thinker_path(@thinker) %> |
 <%= link_to 'Back', thinkers_path %>

@@ -6,21 +6,21 @@
     <tr>
       <th>Name</th>
       <th>Life Dates</th>
-      <th>Email</th>
       <th>Topics</th>
+      <th>Email</th>
     </tr>
    
     <% @thinkers.each do |thinker| %>
       
         <tr>
           <td><%= link_to thinker.name, thinker_path(thinker) %></td>
-          <td><%= thinker.life_date_birth %></td>
-          <td><%= thinker.email %></td>
+          <td><%= thinker.life_date_birth %> - <%= thinker.life_date_death %></td>
           <td>
           <% thinker.topic_list.each do |topic| %>
             <%= link_to topic, topic_path(topic) %>
           <% end %>
           </td>
+          <td><%= thinker.email %></td>
           <td><%= link_to '', edit_thinker_path(thinker), class: 'glyphicon glyphicon-pencil' %>
           </td>
           <td>

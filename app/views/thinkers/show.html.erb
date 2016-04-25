@@ -9,8 +9,8 @@
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @thinker.email %>
+ <strong>Life Dates:</strong> 
+ <%= life_dates_for(@thinker.life_date_birth, @thinker.life_date_death) %>
 </p>
 
 <p>
@@ -18,6 +18,11 @@
 	<% @thinker.topic_list.each do |topic| %>
 	<%= link_to topic, topic_path(topic) %>
 	<% end %>
+</p>
+
+ <p>
+  <strong>Email:</strong>
+  <%= @thinker.email %>
 </p>
 
 <%= link_to 'Edit', edit_thinker_path(@thinker) %> |

@@ -19,11 +19,16 @@
   </p>
  
   <p>
-     <%= f.email_field :email %>
+     <%= f.text_field :topic_list, label: 'Topics/Research Areas' %>
   </p>
 
   <p>
-     <%= f.text_field :topic_list %>
+    <%= f.text_field :life_date_birth, label: 'Date of birth', class: 'form-control', autofocus: true, placeholder: '1850' %>
+    <%= f.text_field :life_date_death, label: 'Date of death', class: 'form-control', autofocus: true, placeholder: '1930' %>
+  </p>
+
+  <p>
+     <%= f.email_field :email %>
   </p>
 
   <p>

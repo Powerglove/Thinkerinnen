@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @reference %> |
-<%= link_to 'Back', references_path %>
+
+<%= link_to 'Show', thinker_reference_path(@thinker, @reference) %> |
+<%= link_to 'Back', thinker_references_path(@thinker) %>

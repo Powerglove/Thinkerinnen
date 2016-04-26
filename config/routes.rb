@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   
   resources :thinkers do
-    resources :references
+    resources :references, shallow: true
   end
 
 

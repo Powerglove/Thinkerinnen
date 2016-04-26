@@ -11,6 +11,7 @@ class ReferencesController < ApplicationController
   # GET /references/1
   # GET /references/1.json
   def show
+    @reference = @thinker.references.find(params[:id])
   end
 
   # GET /references/new
@@ -20,16 +21,17 @@ class ReferencesController < ApplicationController
 
   # GET /references/1/edit
   def edit
+    @reference = @thinker.references.find(params[:id])
   end
 
   # POST /references
   # POST /references.json
   def create
-    @reference = Reference.new(reference_params)
+    @reference = @thinker.references.new(params[:reference])
 
     respond_to do |format|
       if @reference.save
-        format.html { redirect_to @reference, notice: 'Reference was successfully created.' }
+        format.html { redirect_to [@thinker, @reference], notice: 'Reference was successfully created.' }
         format.json { render :show, status: :created, location: @reference }
       else
         format.html { render :new }
@@ -41,9 +43,11 @@ class ReferencesController < ApplicationController
   # PATCH/PUT /references/1
   # PATCH/PUT /references/1.json
   def update
+    @reference = @thinker.references.find(params[:id])
+
     respond_to do |format|
       if @reference.update(reference_params)
-        format.html { redirect_to @reference, notice: 'Reference was successfully updated.' }
+        format.html { redirect_to [@thinker, @reference], notice: 'Reference was successfully updated.' }
         format.json { render :show, status: :ok, location: @reference }
       else
         format.html { render :edit }
@@ -55,9 +59,10 @@ class ReferencesController < ApplicationController
   # DELETE /references/1
   # DELETE /references/1.json
   def destroy
+    @reference = @thinker.references.find(params[:id])
     @reference.destroy
     respond_to do |format|
-      format.html { redirect_to references_url, notice: 'Reference was successfully destroyed.' }
+      format.html { redirect_to thinker_references_path(@thinker), notice: 'Reference was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

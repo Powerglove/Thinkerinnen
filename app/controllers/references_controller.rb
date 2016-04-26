@@ -27,11 +27,11 @@ class ReferencesController < ApplicationController
   # POST /references
   # POST /references.json
   def create
-    @reference = @thinker.references.new(params[:reference])
+    @reference = @thinker.references.new(reference_params)
 
     respond_to do |format|
       if @reference.save
-        format.html { redirect_to [@thinker, @reference], notice: 'Reference was successfully created.' }
+        format.html { redirect_to @thinker, notice: 'Reference was successfully created.' }
         format.json { render :show, status: :created, location: @reference }
       else
         format.html { render :new }

@@ -20,6 +20,13 @@
 	<% end %>
 </p>
 
+<p>
+	<strong>References:</strong>
+	<% @thinker.references.map do |reference| %>
+	<%= reference = "#{@thinker.references.title}" %>
+	<% end %>
+</p>
+
  <p>
   <strong>Email:</strong>
   <%= @thinker.email %>

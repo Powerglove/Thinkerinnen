@@ -1,10 +1,11 @@
 class ReferencesController < ApplicationController
   before_action :set_reference, only: [:show, :edit, :update, :destroy]
+  before_filter :load_thinker
 
   # GET /references
   # GET /references.json
   def index
-    @references = Reference.all
+    @references = @thinker.references.all
   end
 
   # GET /references/1
@@ -14,7 +15,7 @@ class ReferencesController < ApplicationController
 
   # GET /references/new
   def new
-    @reference = Reference.new
+    @reference = @thinker.references.new
   end
 
   # GET /references/1/edit
@@ -70,5 +71,9 @@ class ReferencesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def reference_params
       params.require(:reference).permit(:authors, :publishing_year, :title, :publisher, :place_of_publication, :thinker_id)
+    end
+
+    def load_thinker
+     @thinker = Thinker.find(params[:thinker_id])
     end
 end

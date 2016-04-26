@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421122418) do
+ActiveRecord::Schema.define(version: 20160425095107) do
+
+  create_table "references", force: :cascade do |t|
+    t.string   "authors"
+    t.integer  "publishing_year"
+    t.text     "title"
+    t.string   "publisher"
+    t.string   "place_of_publication"
+    t.integer  "thinker_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "references", ["thinker_id"], name: "index_references_on_thinker_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"

@@ -22,9 +22,18 @@
 
 <p>
 	<strong>References:</strong>
-	<% @thinker.references.map do |reference| %>
-	<%= reference = "#{@thinker.references.title}" %>
-	<% end %>
+	
+	<% @thinker.references.each do |reference| %>
+      <tr>
+        <td><%= reference.authors %></td>
+        <td><%= "( #{reference.publishing_year} )" %></td>
+        <td><%= "'#{reference.title}', " %></td>
+        <td><%= "#{reference.publisher}: "%></td>
+        <td><%= "#{reference.place_of_publication}." %></td>
+      
+      </tr>
+    <% end %>
+	
 </p>
 
  <p>

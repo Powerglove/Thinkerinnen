@@ -7,7 +7,6 @@
       <th>Name</th>
       <th>Life Dates</th>
       <th>Topics</th>
-      <th>Email</th>
       <th>Bibliography</th>
     </tr>
    
@@ -21,7 +20,6 @@
             <%= link_to topic, topic_path(topic) %>
           <% end %>
           </td>
-          <td><%= thinker.email %></td>
           <td><%= link_to '', edit_thinker_path(thinker), class: 'glyphicon glyphicon-pencil' %>
           </td>
           <td>

@@ -23,7 +23,6 @@ class ReferencesController < ApplicationController
   def edit
     @reference = @thinker.references.find(params[:id])
   end
-
   # POST /references
   # POST /references.json
   def create

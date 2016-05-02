@@ -46,7 +46,7 @@ class ReferencesController < ApplicationController
 
     respond_to do |format|
       if @reference.update(reference_params)
-        format.html { redirect_to [@thinker, @reference], notice: 'Reference was successfully updated.' }
+        format.html { redirect_to @reference, notice: 'Reference was successfully updated.' }
         format.json { render :show, status: :ok, location: @reference }
       else
         format.html { render :edit }
@@ -78,6 +78,10 @@ class ReferencesController < ApplicationController
     end
 
     def load_thinker
-     @thinker = Thinker.find(params[:thinker_id])
+      if @reference.nil?
+        @thinker = Thinker.find(params[:thinker_id])
+      else
+        @thinker = @reference.thinker
+      end
     end
 end

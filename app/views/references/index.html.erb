@@ -23,10 +23,10 @@
         <td><%= reference.title %></td>
         <td><%= reference.publisher %></td>
         <td><%= reference.place_of_publication %></td>
-        <td><%= reference.thinker %></td>
-        <td><%= link_to 'Show', thinker_reference_pat(@thinker, reference) %></td>
-        <td><%= link_to 'Edit', edit_thinker_reference_path(@thinker, reference) %></td>
-        <td><%= link_to 'Destroy', [@thinker, reference], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= reference.thinker.name %></td>
+        <td><%= link_to 'Show', reference_path(reference) %></td>
+        <td><%= link_to 'Edit', edit_reference_path(reference) %></td>
+        <td><%= link_to 'Destroy', reference_path(reference), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

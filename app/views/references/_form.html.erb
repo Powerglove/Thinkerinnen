@@ -1,4 +1,4 @@
-<%= form_for(@reference.new_record? ? [@thinker, @reference] : @reference) do |f| %>
+<%= bootstrap_form_for(@reference.new_record? ? [@thinker, @reference] : @reference) do |f| %>
   <% if @reference.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@reference.errors.count, "error") %> prohibited this reference from being saved:</h2>
@@ -12,26 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :authors %><br>
-    <%= f.text_field :authors %>
+    <%= f.text_field :authors, label: 'Author name(s)', class: 'form-control', autofocus: true, placeholder: 'last name, first name' %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :publishing_year, label: 'Year of Publication', class: 'form-control', autofocus: true, placeholder: '1850'  %>
+  </div>
+
+  <div class="field">  
+    <%= f.text_area :title, label: 'Title of Book/Text', class: 'form-control', autofocus: true, placeholder: 'Title'  %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :publisher, label: 'Publisher', class: 'form-control', autofocus: true, placeholder: 'Publisher'  %>
   </div>
   <div class="field">
-    <%= f.label :publishing_year %><br>
-    <%= f.number_field :publishing_year %>
+    <%= f.text_field :place_of_publication, label: 'Place of Publication', class: 'form-control', autofocus: true, placeholder: 'City'  %>
   </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_area :title %>
-  </div>
-  <div class="field">
-    <%= f.label :publisher %><br>
-    <%= f.text_field :publisher %>
-  </div>
-  <div class="field">
-    <%= f.label :place_of_publication %><br>
-    <%= f.text_field :place_of_publication %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <p>
+    <%= f.submit "Create Reference" %>
+  </p>
 <% end %>

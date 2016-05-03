@@ -5,7 +5,7 @@ class ReferencesControllerTest < ActionController::TestCase
 
   def setup
     @thinker = Thinker.create( name: "Example Thinker", email: "thinker@example.com")
-    @reference = @thinker.references.create( authors: "author1", place_of_publication: "", publisher: "", publishing_year: "", title: "")
+    @reference = @thinker.references.create( authors: "author1", place_of_publication: "place", publisher: "", publishing_year: "1950", title: "Great text")
     @request.env["devise.mapping"] = Devise.mappings[:admin]
     @user = users(:example_user)
     sign_in @user
@@ -24,10 +24,8 @@ class ReferencesControllerTest < ActionController::TestCase
 
   test "should create reference" do
     assert_difference('Reference.count') do
-      #post :create, reference: { authors: @reference.authors, place_of_publication: @reference.place_of_publication, publisher: @reference.publisher, publishing_year: @reference.publishing_year, thinker_id: @reference.thinker_id, title: @reference.title }
-      post :create, thinker_id: @thinker.id, reference: { authors: "author1", place_of_publication: "", publisher: "", publishing_year: "", title: "" }
-      #post :create, story: @story.attributes, user_id: @user.id
-    end
+      post :create, thinker_id: @thinker.id, reference: { authors: "author1", place_of_publication: "place", publisher: "", publishing_year: "1950", title: "Great text" }
+  end
 
     assert_redirected_to thinker_path(@thinker)
   end
@@ -54,4 +52,5 @@ class ReferencesControllerTest < ActionController::TestCase
 
     assert_redirected_to thinker_references_path(@thinker)
   end
+
 end

@@ -1,10 +1,10 @@
 <% provide(:title, "Show") %>
 <div class="center jumbotron"> 
 
-<h2>Reference(s) of <%=@reference.thinker%></h2>
+<h2>Reference(s) of <%=@thinker.name %></h2>
 
 <p>
-  <strong>Authors:</strong>
+  <strong>Author(s):</strong>
   <%= @reference.authors %>
 </p>
 
@@ -28,10 +28,6 @@
   <%= @reference.place_of_publication %>
 </p>
 
-<p>
-  <strong>Thinker:</strong>
-  <%= @reference.thinker %>
-</p>
 
 <%= link_to 'Edit Reference', edit_reference_path(@reference) %> |
 <%= link_to 'Back', thinker_references_path(@thinker) %>

@@ -30,9 +30,15 @@ class ReferencesControllerTest < ActionController::TestCase
     assert_redirected_to thinker_path(@thinker)
   end
 
+  test "render new when validation fails on create" do
+    post :create, thinker_id: @thinker.id, reference: { authors: "", place_of_publication: "", publisher: "", publishing_year: "", title: "Great text" }
+    assert_template 'new'
+  end
+
   test "should show reference" do
     get :show, id: @reference.id
     assert_response :success
+    
   end
 
   test "should get edit" do
@@ -42,7 +48,17 @@ class ReferencesControllerTest < ActionController::TestCase
 
   test "should update reference" do
     patch :update, id: @reference.id, reference: { authors: @reference.authors, place_of_publication: @reference.place_of_publication, publisher: @reference.publisher, publishing_year: @reference.publishing_year, thinker_id: @reference.thinker_id, title: @reference.title }
+    assert_equal @reference.title, 'Great text'
     assert_redirected_to reference_path(assigns(:reference))
+  end
+
+  test "render edit when validation fails on update" do
+    params = {title: ''}
+
+    put :update, id: @reference.id, reference: params
+
+    @reference.reload
+    assert_template 'edit'
   end
 
   test "should destroy reference" do

@@ -38,7 +38,7 @@ class ReferencesControllerTest < ActionController::TestCase
   test "should show reference" do
     get :show, id: @reference.id
     assert_response :success
-    
+    assert_equal @reference, assigns(:reference)
   end
 
   test "should get edit" do

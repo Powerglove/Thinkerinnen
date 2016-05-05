@@ -42,6 +42,7 @@ class ThinkersControllerTest < ActionController::TestCase
   test "should get show" do
   	get :show, id: @thinker.id
   	assert_response :success
+    assert_equal @thinker, assigns(:thinker)
   end
 
   test "should get edit" do

@@ -57,7 +57,6 @@ class ReferencesControllerTest < ActionController::TestCase
 
     put :update, id: @reference.id, reference: params
 
-    @reference.reload
     assert_template 'edit'
   end
 

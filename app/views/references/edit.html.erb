@@ -1,0 +1,11 @@
+<% provide(:title, "Edit") %>
+
+<div class="center jumbotron"> 
+
+<h1>Editing Reference</h1>
+
+<%= render 'form' %>
+
+
+<%= link_to 'Show', reference_path(@reference) %> |
+<%= link_to 'Back', thinker_references_path(@thinker) %>

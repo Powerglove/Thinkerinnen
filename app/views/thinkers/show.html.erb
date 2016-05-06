@@ -20,12 +20,30 @@
 	<% end %>
 </p>
 
+<p>
+	<strong>References:</strong>
+	
+	<% @thinker.references.each do |reference| %>
+      <tr>
+        <td><%= reference.authors %></td>
+        <td><%= "( #{reference.publishing_year} )" %></td>
+        <td><%= "'#{reference.title}', " %></td>
+        <td><%= "#{reference.publisher}: "%></td>
+        <td><%= "#{reference.place_of_publication}." %></td>
+      
+      </tr>
+    <% end %>
+	
+</p>
+
  <p>
   <strong>Email:</strong>
   <%= @thinker.email %>
 </p>
 
-<%= link_to 'Edit', edit_thinker_path(@thinker) %> |
+<%= link_to 'Edit Thinker', edit_thinker_path(@thinker) %> |
+<%= link_to 'New Reference', new_thinker_reference_path(@thinker) %> |
+<%= link_to 'See and Edit References', thinker_references_path(@thinker) %> |
 <%= link_to 'Back', thinkers_path %>
 
 </div>

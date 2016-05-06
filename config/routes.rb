@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   get 'topics/:topic', to: 'topics#index', as: 'topic' 
 
   devise_for :users
@@ -9,7 +10,9 @@ Rails.application.routes.draw do
 
 
   
-  resources :thinkers
+  resources :thinkers do
+    resources :references, shallow: true
+  end
 
 
 

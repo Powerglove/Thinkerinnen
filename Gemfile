@@ -36,6 +36,8 @@ gem "rolify"
 gem "pundit"
 
 
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -60,6 +62,8 @@ group :test do
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+
+  gem "codeclimate-test-reporter", require: nil
 end
 
 group :development do

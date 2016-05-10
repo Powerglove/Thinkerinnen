@@ -5,3 +5,5 @@
 # Thinkerinnen
 
 This is a Ruby on Rails App that was started during the Learn IT, Girl mentoring program in early 2016.
+
+Supported by the [Travis Foundation](http://foundation.travis-ci.org/).

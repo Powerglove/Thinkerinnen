@@ -16,7 +16,9 @@
 <p>
 	<strong>Topics:</strong>
 	<% @thinker.topic_list.each do |topic| %>
-	<%= link_to topic, topic_path(topic) %>
+    <span class="topic">
+	   <%= link_to topic, topic_path(topic) %> 
+    </span>
 	<% end %>
 </p>
 

@@ -12,12 +12,12 @@
         clearSearch();
         return;
       }
-      $('.team').each(function (index, thinker) {
-        var $tokens = $(team).find('.token');
+      $('.thinker').each(function (index, thinker) {
+        var $tokens = $(thinker).find('.token');
         var matches = $tokens.filter(function (index, token) {
           return matchToken(query, token);
         });
-        $(team).toggle(matches.length > 0);
+        $(thinker).toggle(matches.length > 0);
       });
     });
     function escapePressed(e) {
@@ -25,7 +25,7 @@
     }
     function clearSearch() {
       $('.token').removeClass('match');
-      $('.team').show();
+      $('.thinker').show();
     }
     function queryMatches(query, text) {
       return text.toLowerCase().includes(query);

@@ -49,7 +49,10 @@
 
     <div class="input-field col s12 search">
       <label for="search">Search for thinkers</label>
-      <input id="search" class="form-control" placeholder="Search" type="text" required>
+      <form class="form-search form-inline">
+        <input id="search" class="form-control" placeholder="Search" type="text" required>
+      </form>    
+            
     </div>
 
    <table class="table table-hover">
@@ -61,13 +64,14 @@
    
     <% @thinkers.each do |thinker| %>
       
-        <tr>
-          <td><%= link_to thinker.name, thinker_path(thinker) %></td>
+        <tr class="thinker">
+          <td>
+            <span class="token"><%= link_to thinker.name, thinker_path(thinker) %></span>
+          </td>
           <td><%= life_dates_for(thinker.life_date_birth, thinker.life_date_death) %></td>
           <td>
           <% thinker.topic_list.each do |topic| %>
-            <span class="topic">
-            <%= link_to topic, topic_path(topic) %>
+            <span class="token"><%= link_to topic, topic_path(topic) %></span>
             </span>
           <% end %>
           </td>

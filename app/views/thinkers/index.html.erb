@@ -48,11 +48,10 @@
 <h2>List of thinkers</h2>
 
     <div class="input-field col s12 search">
-      <label for="search">Search for thinkers</label>
+      <label for="search">Search for thinkers or topics/research areas</label>
       <form class="form-search form-inline">
         <input id="search" class="form-control" placeholder="Search" type="text" required>
       </form>    
-            
     </div>
 
    <table class="table table-hover">
@@ -71,8 +70,7 @@
           <td><%= life_dates_for(thinker.life_date_birth, thinker.life_date_death) %></td>
           <td>
           <% thinker.topic_list.each do |topic| %>
-            <span class="token"><%= link_to topic, topic_path(topic) %></span>
-            </span>
+            <span class="token topic"><%= link_to topic, topic_path(topic) %></span>
           <% end %>
           </td>
           <td><%= link_to '', edit_thinker_path(thinker), class: 'glyphicon glyphicon-pencil' %>

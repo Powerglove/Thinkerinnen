@@ -43,6 +43,11 @@
   <%= @thinker.email %>
 </p>
 
+<p>
+  <strong>Additional Information:</strong>
+  <%= @thinker.additional_information %>
+</p>
+
 <%= link_to 'Edit Thinker', edit_thinker_path(@thinker) %> |
 <%= link_to 'New Reference', new_thinker_reference_path(@thinker) %> |
 <%= link_to 'See and Edit References', thinker_references_path(@thinker) %> |

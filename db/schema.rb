@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425095107) do
+ActiveRecord::Schema.define(version: 20160514135138) do
 
   create_table "references", force: :cascade do |t|
     t.string   "authors"
@@ -60,10 +60,11 @@ ActiveRecord::Schema.define(version: 20160425095107) do
   create_table "thinkers", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "life_date_birth"
     t.integer  "life_date_death"
+    t.text     "additional_information"
   end
 
   create_table "users", force: :cascade do |t|

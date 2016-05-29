@@ -16,7 +16,7 @@ class ThinkersController < ApplicationController
   end
 
   def index
-  	@thinkers = Thinker.all
+    @thinkers = Thinker.all.order(name: :asc)
   end
 
   def show
@@ -49,6 +49,6 @@ class ThinkersController < ApplicationController
   private
 
   def thinker_params
-      params.require(:thinker).permit(:name, :email, :topic_list, :life_date_birth, :life_date_death, :reference)
+      params.require(:thinker).permit(:name, :email, :topic_list, :life_date_birth, :life_date_death, :reference, :additional_information)
     end
 end

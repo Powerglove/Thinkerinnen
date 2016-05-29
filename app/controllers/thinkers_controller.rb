@@ -16,7 +16,7 @@ class ThinkersController < ApplicationController
   end
 
   def index
-  	@thinkers = Thinker.all
+    @thinkers = Thinker.all.order(name: :asc)
   end
 
   def show

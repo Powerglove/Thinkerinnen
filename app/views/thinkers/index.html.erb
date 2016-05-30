@@ -1,7 +1,58 @@
 <% provide(:title, "Index") %>
+
+<script>
+  $(function () {
+    $('#search').on('keyup', function (e) {
+      var $search = $('#search');
+      if (escapePressed(e)) {
+        $search.val('');
+      }
+      var query = $search.val().toLowerCase();
+      if (query.length == 0) {
+        clearSearch();
+        return;
+      }
+      $('.thinker').each(function (index, thinker) {
+        var $tokens = $(thinker).find('.token');
+        var matches = $tokens.filter(function (index, token) {
+          return matchToken(query, token);
+        });
+        $(thinker).toggle(matches.length > 0);
+      });
+    });
+    function escapePressed(e) {
+      return e.keyCode == 27;
+    }
+    function clearSearch() {
+      $('.token').removeClass('match');
+      $('.thinker').show();
+    }
+    function queryMatches(query, text) {
+      return text.toLowerCase().includes(query);
+    }
+    function matchToken(query, token) {
+      var $token = $(token);
+      if (queryMatches(query, $token.text())) {
+        $token.addClass('match');
+        return true;
+      } else {
+        $token.removeClass('match');
+        return false;
+      }
+    }
+  });
+</script>
+
 <div class="center jumbotron">
 
 <h2>List of thinkers</h2>
+
+    <div class="input-field col s12 search">
+      <label for="search">Search for thinkers or topics/research areas</label>
+      <form class="form-search form-inline">
+        <input id="search" class="form-control" placeholder="Search" type="text" required>
+      </form>    
+    </div>
 
    <table class="table table-hover">
     <tr>
@@ -12,14 +63,14 @@
    
     <% @thinkers.each do |thinker| %>
       
-        <tr>
-          <td><%= link_to thinker.name, thinker_path(thinker) %></td>
+        <tr class="thinker">
+          <td>
+            <span class="token"><%= link_to thinker.name, thinker_path(thinker) %></span>
+          </td>
           <td><%= life_dates_for(thinker.life_date_birth, thinker.life_date_death) %></td>
           <td>
           <% thinker.topic_list.each do |topic| %>
-            <span class="topic">
-            <%= link_to topic, topic_path(topic) %>
-            </span>
+            <span class="token topic"><%= link_to topic, topic_path(topic) %></span>
           <% end %>
           </td>
           <td><%= link_to '', edit_thinker_path(thinker), class: 'glyphicon glyphicon-pencil' %>
@@ -33,6 +84,7 @@
       
     <% end %>
   </table>
+
 
 </div>
 

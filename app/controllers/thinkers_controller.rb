@@ -1,7 +1,7 @@
 class ThinkersController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :autocomplete_thinker_name]
   autocomplete :thinker, :name
-  
+
   
   def new
   	@thinker = Thinker.new

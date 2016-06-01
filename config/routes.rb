@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   
   resources :thinkers do
     resources :references, shallow: true
+    get :autocomplete_thinker_name, :on => :collection
   end
 
 

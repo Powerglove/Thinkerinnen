@@ -63,9 +63,7 @@ input.search-query {
     padding-left: 26px;
 }
 
-form.form-search {
-    position: relative;
-}
+
 
 /* typography */
 
@@ -107,6 +105,8 @@ ul.hmenu {
 ul.hmenu li {
   display: inline;  
 }
+
+
 /* header */
 
 #logo {
@@ -169,4 +169,8 @@ footer {
 .form-control {
 	width: 50%;
 	margin: 0 auto;
+}
+
+form.form-search {
+    position: relative;
 }

@@ -1,6 +1,6 @@
 class ThinkersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :autocomplete_thinker_name]
-  autocomplete :thinker, :name
+  autocomplete :thinker, :name, :extra_data => [:topics]
 
   
   def new
@@ -52,5 +52,5 @@ class ThinkersController < ApplicationController
 
   def thinker_params
       params.require(:thinker).permit(:name, :email, :topic_list, :life_date_birth, :life_date_death, :reference, :additional_information)
-    end
+  end
 end

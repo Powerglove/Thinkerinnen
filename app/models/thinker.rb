@@ -5,4 +5,5 @@ class Thinker < ActiveRecord::Base
 	          format: { with: VALID_EMAIL_REGEX }, allow_blank: true
 	acts_as_taggable_on :topics
 	has_many :references
+  has_and_belongs_to_many :topics
 end

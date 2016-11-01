@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514135138) do
+ActiveRecord::Schema.define(version: 20161025185202) do
 
   create_table "references", force: :cascade do |t|
     t.string   "authors"
@@ -65,6 +65,20 @@ ActiveRecord::Schema.define(version: 20160514135138) do
     t.integer  "life_date_birth"
     t.integer  "life_date_death"
     t.text     "additional_information"
+  end
+
+  create_table "thinkers_topics", id: false, force: :cascade do |t|
+    t.integer "thinker_id"
+    t.integer "topic_id"
+  end
+
+  add_index "thinkers_topics", ["thinker_id"], name: "index_thinkers_topics_on_thinker_id"
+  add_index "thinkers_topics", ["topic_id"], name: "index_thinkers_topics_on_topic_id"
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,4 @@
-<%= bootstrap_form_for @thinker do |f| %>
+<%= bootstrap_form_for [@thinker, Topic.new] do |f| %>
 
 <% if @thinker.errors.any? %>
     <div id="error_explanation">
@@ -19,7 +19,7 @@
   </p>
  
   <p>
-     <%= f.text_field :topic_list, label: 'Topics/Research Areas' %>
+     <%= f.text_field :topic, label: 'Topics/Research Areas' %>
   </p>
 
   <p>

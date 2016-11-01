@@ -69,8 +69,8 @@
           </td>
           <td><%= life_dates_for(thinker.life_date_birth, thinker.life_date_death) %></td>
           <td>
-          <% thinker.topic_list.each do |topic| %>
-            <span class="token topic"><%= link_to topic, topic_path(topic) %></span>
+          <% thinker.topics.each do |topic| %>
+            <span class="token topic"><%= link_to topic.name, topic_path(topic) %></span>
           <% end %>
           </td>
           <td><%= link_to '', edit_thinker_path(thinker), class: 'glyphicon glyphicon-pencil' %>

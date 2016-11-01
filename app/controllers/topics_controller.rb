@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  def index
+  def show
   	@thinkers = Thinker.tagged_with(params[:topic]).all
   	@topic = params[:topic]
   end

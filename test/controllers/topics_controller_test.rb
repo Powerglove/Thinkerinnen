@@ -8,12 +8,12 @@ class TopicsControllerTest < ActionController::TestCase
     #assert_response :success
   #end
 
-  test "should get index" do
+  test "should get show" do
   	thinker = Thinker.create(name: "Test Thinker", email: "test@example.com")
   	thinker.topic_list = "logic, math"
   	thinker.save
 
-  	get :index, topic: 'logic'
+  	get :show, topic: 'logic'
 
   	assert_equal [thinker], assigns(:thinkers)
 

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   
-  #get 'topics/:topic', to: 'topics#index', as: 'topic' 
+  get 'topics/:topic', to: 'topics#show', as: 'topic' 
 
   devise_for :users
   root 'static_pages#welcome'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :references, shallow: true
   end
 
-  resources :topics
+  #resources :topics
 
 
 
